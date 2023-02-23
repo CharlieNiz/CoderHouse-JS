@@ -1,5 +1,5 @@
 //Calculador de plazo fijo a 12 meses con tasa fija de 75% anual
-alert("Bienvenido al simulado de plazo fijos")
+alert("Bienvenido al simulador de plazos fijos")
 let interes = 0
 function PlazoFijo(){
 let monto = prompt("Ingrese monto a invertir"); //pide ingresar un valor de dinero a invertir
