@@ -24,8 +24,4 @@ let monto = prompt("Ingrese monto a invertir"); //pide ingresar un valor de dine
         + tasa *100 + "% " + "equivalen a: $" + interes.toFixed(2) + " para un plazo de: "
         + meses *30 +" dias");
 }
-<<<<<<< HEAD
 PlazoFijo();
-=======
-PlazoFijo();
->>>>>>> da05876a40d64c2a2a2f495665936b52df3b0ccd
