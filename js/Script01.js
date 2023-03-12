@@ -32,6 +32,7 @@ function conversor() {
     let ARS = 0
     let USD = 0
     let EUR = 0
+    let date = 0
     let moneda = prompt("1 Pesos ARG \n2 Dolares USD \n3 Euros EU \nEnter para salir")
     while (moneda != "") {
         switch (moneda) {
@@ -42,7 +43,7 @@ function conversor() {
                     EUR = ARS / 400
                     alert("$" + ARS + " Pesos Argentinos equivalen a:" + "\n$" + USD.toFixed(2) + " dolares USD" + "\n$" + EUR.toFixed(2) + " Euros")
                     const ARSsafe = [];
-                    ARSsafe.push(("pesos: "+ARS),("dolares: "+USD.toFixed(2)),("euros: "+EUR.toFixed(2)));
+                    ARSsafe.push(("pesos: "+ARS),("dolares: "+USD.toFixed(2)),("euros: "+EUR.toFixed(2)),(date = new date));
                     console.log(ARSsafe); 
                 }
                 moneda = prompt("Desea realizar una nueva conversión: \n1 Pesos ARG \n2 Dolares USD \n3 Euros EU \nEnter para volver al menu anterior")
@@ -85,7 +86,7 @@ function prestamos() {
     alert("funcionalidad de prestamos en contrucción");
 }
 
-let menu = prompt("Seleccione la opción deseada \nopción 1 simulador de plazos fijos \nOpción 2 convertir divisas \nOpción 3 prestamo personal");
+let menu = prompt("Seleccione la opción deseada \nopción 1 simulador de plazos fijos \nOpción 2 convertir divisas \nOpción 3 prestamo personal\nEnter para salir");
 while (menu != "") {
     switch (menu) {
         case '1':
