@@ -14,8 +14,8 @@ function PlazoFijo() { //función para cálculo de los plazos fijos
     }
     interes = monto * tasa / 365 * meses * 30; //formula para cálculo del 'interes' anual aplicado a los días según la 'tasa' correspondiente
     total = parseInt(monto) + parseFloat(interes); //guardado de datos númericos para calcular el total a reembolsar
-    alert("Tasa anual : " + tasa * 100 + "% \nPlazo: " //muestra de los resultados obtenidos
-        + meses * 30 + " dias\nIntereses: $ " + interes.toFixed(2) + " " + moneda + "\nTotal a reembolsar: $" + total.toFixed(2) + " " + moneda);
+    alert("Tasa anual : " + tasa * 100 + "% \nPlazo: " + meses * 30 + " dias\nIntereses: $ " //muestra de los resultados obtenidos
+        + interes.toFixed(2) + " " + moneda + "\nTotal a reembolsar: $" + total.toFixed(2) + " " + moneda);
     const PlazoFijoSafe = []; //creación de array para guardado de datos
     PlazoFijoSafe.push((monto), (tasa), (meses), (interes.toFixed(2)), total.toFixed(2),); //guardado de datos para ordenar posteriormente
     console.log(PlazoFijoSafe);
