@@ -1,9 +1,4 @@
-const date = new Date(); //creación de variable para la fecha (posteriormente a utilizar para ordenamiento)
-let day = date.getDate(); let month = date.getMonth() + 1; let year = date.getFullYear(); //declaración de variables para el día
-let hour = date.getHours(); let minute = date.getMinutes(); let seconds = date.getSeconds(); //declaración de variables para la hora
-
 alert("Bienvenido al simulador de Plazos fijos y Prestamos") //Calculador de plazo fijo a 12 meses con tasa fija anual de 75% en pesos o 10% anual en USD
-
 let monto = 0; let interes = 0; let total = 0; let tasa = 0; let meses = 0; //declaración de variables
 
 function PlazoFijo() { //función para cálculo de los plazos fijos
@@ -22,7 +17,7 @@ function PlazoFijo() { //función para cálculo de los plazos fijos
     alert("Tasa anual : " + tasa * 100 + "% \nPlazo: " //muestra de los resultados obtenidos
         + meses * 30 + " dias\nIntereses: $ " + interes.toFixed(2) + " " + moneda + "\nTotal a reembolsar: $" + total.toFixed(2) + " " + moneda);
     const PlazoFijoSafe = []; //creación de array para guardado de datos
-    PlazoFijoSafe.push((monto), (tasa), (meses), (interes.toFixed(2)), total.toFixed(2)); //guardado de datos para ordenar posteriormente
+    PlazoFijoSafe.push((monto), (tasa), (meses), (interes.toFixed(2)), total.toFixed(2),); //guardado de datos para ordenar posteriormente
     console.log(PlazoFijoSafe);
 }
 
