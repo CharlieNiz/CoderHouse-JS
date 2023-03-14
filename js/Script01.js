@@ -1,9 +1,9 @@
-//alert("Bienvenido al simulador de Plazos fijos y Prestamos") //Calculador de plazo fijo a 12 meses con tasa fija anual de 75% en pesos o 10% anual en USD
+alert("Bienvenido al simulador de Plazos fijos") //Calculador de plazo fijo a 12 meses con tasa fija anual de 75%
 let monto = 0; let interes = 0; let total = 0; let tasa = 0; let meses = 0; //declaración de variables
-let plazo = []; let ganancia = [];
+salvar = []; //declaración de la array para guardar los datos a ordenar
 
 function PlazoFijo() { //función para cálculo de los plazos fijos
-    monto = prompt("Ingrese monto en a invertir"); //solicitud de ingreso del valor de dinero a invertir
+    monto = prompt("Ingrese monto en a invertir"); //solicitud de valor numerico de dinero a invertir
     while (isNaN(monto) == true || monto == "") { //mientras 'monto' no sea un número o sea nulo continuará solicitando ingreso
         alert("Debe ingresar un valor numérico"); //advertencia de valor ingresado incorrecto
         monto = prompt("Ingrese monto a invertir"); //nueva solicitud de ingreso
@@ -14,25 +14,36 @@ function PlazoFijo() { //función para cálculo de los plazos fijos
         meses = prompt("Cantidad de meses\nEntre 1 y 12"); //nueva solicitud de ingreso
     }
     interes = monto * tasa / 365 * meses * 30; //formula para cálculo del 'interes' anual aplicado a los días según la 'tasa' correspondiente
-    total = parseInt(monto) + parseFloat(interes); //guardado de datos númericos para calcular el total a reembolsar
-    alert("Tasa anual : " + tasa * 100 + "% \nPlazo: " + meses * 30 + " dias\nIntereses: $ " + interes.toFixed(2) + "\nTotal a reembolsar: $" + total.toFixed(2));
+    total = parseInt(monto) + parseFloat(interes); //guardado de datos numericos para calcular el total a reembolsar
+    alert("Tasa anual : " + tasa * 100 + "% \nPlazo: " + meses * 30 + " dias\nIntereses: $ " + interes.toFixed(2) + "\nTotal a reembolsar: $" + total.toFixed(2)); //muestra resultados
 
-    plazo.push(meses); console.log(meses);
-    ganancia.push(total.toFixed(2)); console.log(ganancia);
+    let plazo = meses; let ganancias = total.toFixed(2); let inicial = monto//cambiooo de variables
+    let calculo = { plazo, ganancias, inicial };
+    salvar.push(calculo);
+    console.log(calculo);
+}
+
+function mostrar(items) {
+    let show = "";
+    items.forEach(item => {
+        show += "Monto inicial: $" + item.inicial + "\nPlazo: " + (item.plazo) * 30 + " dias" + "\nGanancia: $" + item.ganancias + "\n\n";
+    });
+    return show;
 }
 
 function Orden() {
     let opcion = prompt("Seleccione criterio de ordenamiento \n\n\n1 - Mayores ganancias generadas\n\n2 - Plazo más corto calculado\n\nENTER volver al menu anterior\n"); //menu principal
+    let valor = salvar.slice(0);
     while (opcion != "") {
         switch (opcion) { //dependiendo de la selección se establece el tipo de moneda y tasa correspondiente
             case '1':
-                alert("\n$"+ganancia.sort((a, b) => +"\n"+b - a));
-                break;
+                let MasGanancias = valor.sort((a, b) => b.ganancias - a.ganancias);
+                alert(mostrar(MasGanancias));
+                return MasGanancias;
             case '2':
-                alert("\n"+plazo.sort((a, b) => +"\n"+ a - b));
-                break;
-            case '3':
-                break;
+                let MenorPlazo = valor.sort((a, b) => a.plazo - b.plazo);
+                alert(mostrar(MenorPlazo));
+                return MenorPlazo;
         }
         opcion = prompt("Seleccione nuevo criterio de ordenamiento \n\n\n1 - Mayores ganancias generadas\n\n2 - Plazo más corto calculado\n\nENTER para volver al menu anterior\n");
     }
