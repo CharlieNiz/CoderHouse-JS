@@ -26,10 +26,10 @@ function Orden() {
     while (opcion != "") {
         switch (opcion) { //dependiendo de la selección se establece el tipo de moneda y tasa correspondiente
             case '1':
-                alert(ganancia.sort((a, b) => b - a));
+                alert("\n$"+ganancia.sort((a, b) => +"\n"+b - a));
                 break;
             case '2':
-                alert(plazo.sort((a, b) => a - b));
+                alert("\n"+plazo.sort((a, b) => +"\n"+ a - b));
                 break;
             case '3':
                 break;
