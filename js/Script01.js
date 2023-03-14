@@ -17,13 +17,12 @@ function PlazoFijo() { //función para cálculo de los plazos fijos
     total = parseInt(monto) + parseFloat(interes); //guardado de datos numericos para calcular el total a reembolsar
     alert("Tasa anual : " + tasa * 100 + "% \nPlazo: " + meses * 30 + " dias\nIntereses: $ " + interes.toFixed(2) + "\nTotal a reembolsar: $" + total.toFixed(2)); //muestra resultados
 
-    let plazo = meses; let ganancias = total.toFixed(2); let inicial = monto//cambiooo de variables
-    let calculo = { plazo, ganancias, inicial };
-    salvar.push(calculo);
-    console.log(calculo);
+    let plazo = meses; let ganancias = total.toFixed(2); let inicial = monto//cambio de variables
+    let calculo = { plazo, ganancias, inicial }; //guardo los datos nuevos en el la variable 'calculo'
+    salvar.push(calculo); console.log(calculo); //guardo los valores obtenidos en el array 'salvar' y muestro en la consola los valores
 }
 
-function mostrar(items) {
+function mostrar(items) { //funcion que aplica a todos los items de una array para posteriormente utilizar en el 'alert()'
     let show = "";
     items.forEach(item => {
         show += "Monto inicial: $" + item.inicial + "\nPlazo: " + (item.plazo) * 30 + " dias" + "\nGanancia: $" + item.ganancias + "\n\n";
@@ -31,17 +30,17 @@ function mostrar(items) {
     return show;
 }
 
-function Orden() {
-    let opcion = prompt("Seleccione criterio de ordenamiento \n\n\n1 - Mayores ganancias generadas\n\n2 - Plazo más corto calculado\n\nENTER volver al menu anterior\n"); //menu principal
+function Orden() { //funcion para ordenar datos de las arrays
+    let opcion = prompt("Seleccione criterio de ordenamiento \n\n\n1 - Mayores ganancias generadas\n\n2 - Plazo más corto calculado\n\nENTER volver al menu anterior\n"); //menu de ordenamiento y filtrado
     let valor = salvar.slice(0);
     while (opcion != "") {
         switch (opcion) { //dependiendo de la selección se establece el tipo de moneda y tasa correspondiente
             case '1':
-                let MasGanancias = valor.sort((a, b) => b.ganancias - a.ganancias);
-                alert(mostrar(MasGanancias));
+                let MasGanancias = valor.sort((a, b) => b.ganancias - a.ganancias); //ordenamiento de mayor a menor ganancias
+                alert(mostrar(MasGanancias)); //llama a la función 'mostrar()'
                 return MasGanancias;
             case '2':
-                let MenorPlazo = valor.sort((a, b) => a.plazo - b.plazo);
+                let MenorPlazo = valor.sort((a, b) => a.plazo - b.plazo); //ordena de menor a mayor la duración en meses
                 alert(mostrar(MenorPlazo));
                 return MenorPlazo;
         }
@@ -51,7 +50,7 @@ function Orden() {
 
 let menu = prompt("Menu principal\n\n\nPresione 1 para calcular su primer plazo fijo en Pesos ARS\n\nENTER para SALIR\n"); //menu principal
 while (menu != "") {
-    switch (menu) { //dependiendo de la selección se establece el tipo de moneda y tasa correspondiente
+    switch (menu) { //dependiendo de la selección llama la función correspondiente
         case '1':
             tasa = .75;
             PlazoFijo();
