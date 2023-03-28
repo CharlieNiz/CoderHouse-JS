@@ -30,7 +30,7 @@ function PlazoFijo() { //función para cálculo de los plazos fijos
     let interes = inversion  * .75 / 365 * duracion * 30; //formula para cálculo del 'interes' anual aplicado a los días según la 'tasa' correspondiente
     let total = parseInt(inversion) + parseFloat(interes); //guardado de datos numericos para calcular el total a reembolsar
     reembolsar = total.toFixed(2);
-    show.innerHTML = "Con su inversión de: $"+inversion+"<br>Durante un periodo de: "+duracion*30+" días"+"<br>Se reembolsarán: $<b>"+reembolsar+"</b> pesos a su cuenta";
+    show.innerHTML = "<br>Con su inversión de:"+"<b> $"+inversion+"</b>"+"<br>Durante un periodo de: <b>"+duracion*30+"</b> días"+"<br>Otendrá: $<b>"+reembolsar+"</b> pesos";
     mostrarResultado.value = `${reembolsar}`;
     Valores(operaciones);
     GuardarValores(operaciones);
